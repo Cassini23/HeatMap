@@ -1,4 +1,8 @@
-<select ng-model="area" ng-options="area.name for area in areas">
+<select ng-model="category" ng-options="category.name for category in categories">
     <option value="">-- choose city --</option>
 </select>
-<button ng-click="getData()">Search</button>
+<button ng-click="getData(category)">Search</button>
+<br/>
+<div id="result">
+    {{result}}
+</div>
