@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+            var service = {};
+            var result = [];
+            var setData = function(){
+                var areas =['Sunnyvale','Santa Clara','Helsinki','Toronto'];
+                var Tstatus = ['Open','Closed'];
+                var name= ['A','B','C','D'];
+
+                for(var i =0; i<50; i++){
+                    //sample set of 100 tickets
+                    result.push({
+                        "ticketID": Math.floor(Math.random()*(10000-1)),
+                        "complaints/text": "Some Text",
+                        "madeByUser": name[i% Math.round(Math.random() * (name.length -1) +1)],
+                        "userLocation": areas[i% Math.round(Math.random() * (areas.length - 1))],
+                        "Date": new Date(new Date() *(Math.random() * (1-0.95)+0.95)),
+                        "Status": Tstatus[i% Math.round(Math.random() * (1-0)+1)]
+                    });
+                }
+                return result;
+            };
+
+
+           var div = document.querySelector('div');
+            div.innerHTML = JSON.stringify(setData());
+        });
+    </script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>
